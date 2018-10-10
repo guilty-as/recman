@@ -91,7 +91,7 @@ Write good (modern, readable and PSR-2) code and be nice when creating issues.
 
 ## Security
 
-If you discover any security related issues, please email email@helgesverre.com instead of using the issue tracker.
+If you discover any security related issues, please email tech@guilty.no instead of using the issue tracker.
 
 ## Credits
 
