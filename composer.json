@@ -1,0 +1,31 @@
+{
+    "name": "guilty/recman",
+    "type": "library",
+    "description": "Recman API SDK",
+    "keywords": [
+        "guilty",
+        "recman",
+        "recruitment",
+        "manager"
+    ],
+    "homepage": "https://github.com/guilty-as/recman",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guilty AS",
+            "email": "tech@guilty.nop",
+            "homepage": "https://guilty.no",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~5.6|~7.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "psr/simple-cache": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Guilty\\Recman\\": "src"
+        }
+    }
+}
