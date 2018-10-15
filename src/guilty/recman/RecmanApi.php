@@ -103,7 +103,11 @@ class RecmanApi
     protected function prepareFieldParams($params)
     {
         if (isset($params["fields"])) {
-            return implode(",", $params["fields"]);
+            if (is_array($params["fields"])) {
+                return implode(",", $params["fields"]);
+            } else {
+                return $params["fields"];
+            }
         }
 
         return null;
