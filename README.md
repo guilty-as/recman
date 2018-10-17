@@ -1,7 +1,7 @@
 # Recman API PHP SDK
 
-This is a simple service class for querying the [Recman API](https://help.recman.no/no/help/api/), 
-a cached version of the service is provided since Recman has rate limiting on 
+This is a simple service class for querying the [Recman API](https://help.recman.no/no/help/api/),
+a cached version of the service is provided since Recman has rate limiting on
 their API (200 requests per day).
 
 
@@ -21,10 +21,10 @@ composer require guilty/recman
 <?php
 
 // Basic usage
-$httpClient = new GuzzleHttp\Client();
+$client = new GuzzleHttp\Client();
 $recman = new \Guilty\Recman\RecmanApi(
-    "YOUR-API-KEY-HERE", 
-    $httpClient
+    "YOUR-API-KEY-HERE",
+    $client
 );
 
 // Using the provided service with caching, you can use any PSR-16 compatible cache library
@@ -37,7 +37,7 @@ $expire = new DateInterval("P1D"); // 1 day
 $expire = 7200; // 2 hours
 $recman = new \Guilty\Recman\CachedRecmanApi(
     "YOUR-API-KEY-HERE",
-    $httpClient, $cache, $expire
+    $client, $cache, $expire
  );
 
 // Available Methods
@@ -58,15 +58,15 @@ $recman->getUserList($departmentIds = [], $corporationIds = [], $tagIds = []);
 $recman->getUserTagList();
 
 
-// If you are using the cache service, but need to get "fresh" data for a 
+// If you are using the cache service, but need to get "fresh" data for a
 // method call, use the fluent disableCache() method.
 $recman->disableCache()->getJobPostList();
 
-// Note that this will disable the cache for all future calls, so use 
+// Note that this will disable the cache for all future calls, so use
 // enableCache() if you have subsequent calls that require caching
 $recman->enableCache()->getDepartmentList();
 
-// Or you can just call it without method chaining, either way the cache 
+// Or you can just call it without method chaining, either way the cache
 // will be enabled for the rest of the code duration.
 $recman->enableCache();
 
@@ -75,7 +75,7 @@ $recman->getBranchList();
 $recman->getBranchCategoryList();
 
 
-// If your API key does not have access to a scope, or if the API key 
+// If your API key does not have access to a scope, or if the API key
 // is invalid, the API will throw an Exception
 try {
     $recman->getCandidateList();
